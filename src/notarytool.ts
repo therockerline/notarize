@@ -84,6 +84,7 @@ export async function notarizeAndWaitForNotaryTool(opts: NotaryToolStartOptions)
 
     const result = await spawn('xcrun', notarizeArgs);
     const parsed = JSON.parse(result.output.trim());
+    console.log(parsed)
 
     if (result.code !== 0 || !parsed.status || parsed.status !== 'Accepted') {
       try {
